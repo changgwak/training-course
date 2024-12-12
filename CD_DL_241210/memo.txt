@@ -1,0 +1,44 @@
+foundation model 72b 16bit(FP16) 이면 160VRAM 정도면 가능할수도 있고 아닐수도 있고 input/output token 개수를 제한하면 가능할듯.
+
+그런데 150b 정도 모델의 더 양자화된 모델로 하면 inference 성능은 더 좋을수도 있음. 테스트 필요.
+
+
+
+
+
+Q) img_size 128이면 보통 충분한가?
+Q)
+
+
+어떤 상황에서 어떤 net을 써야되는지 가이드 같은게 정리되어 있는게 있는지? huggingface model에서 ranking 확인.
+resnet18은 cpu의 real time에서 inference 할 때 충분할지?
+
+지금도 CNN 영역에서 resnet 많이 쓰는지? 그런듯
+이전 image data와 conv 된 data를 합친다는게 어떻게 합친다는 말? sum pixel data
+
+
+conv는 filter 개수 늘리면 왠만해선 잘 됨.
+
+경량화 -> fine tuning 하고 난 후 pruning 과정 거침.
+
+
+cocodataset.org
+
+weighted sum? feature 000 만드는 과정.
+p69 inductive bias : 
+
+Q) accuracy 가 몇 정도면 쓸만하다고 보나? 
+-> 케바케. 80%이상이면 쓸만하다고 볼수도 있고.. 근데 이 모델을 어느정도까지 튜닝해서 정확도를 확보할수 있는지 보는게 중요.
+
+cnn model 말고 vit 로 할수있을까?> 
+
+vit도 transfer learning으로 튜닝 가능할까? 
+-> 가능. vision transformer 에서는 transfer learning이라곤 안 하고 그냥 tunning이라 함.
+ 
+
+
+
+1280*960 pixels --> 이 정도 resolution이면 충분한 이미지 사이즈로 볼 수 있음.
+
+labeling은 class를 세분화해서 나누고 training 할 떄는 class를 조금 나눠서 해도 됨. 
+그런데 training data의 class를 더 줄여서 training을 하던 말던 결과가 좋게 나오는거면 class를 여러 개 해도 경험적으로 결과는 잘 나오는거 같음. 
