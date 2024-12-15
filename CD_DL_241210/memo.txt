@@ -1,3 +1,5 @@
+https://sudormrf.run/jong-hyun-park/
+
 foundation model 72b 16bit(FP16) 이면 160VRAM 정도면 가능할수도 있고 아닐수도 있고 input/output token 개수를 제한하면 가능할듯.
 
 그런데 150b 정도 모델의 더 양자화된 모델로 하면 inference 성능은 더 좋을수도 있음. 테스트 필요.
